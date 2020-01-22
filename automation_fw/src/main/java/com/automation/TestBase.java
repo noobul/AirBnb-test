@@ -7,6 +7,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -157,10 +158,6 @@ public class TestBase extends ExtendManager {
                 .captureScreen(driver, CaptureScreenShot
                         .generateFileName(stack[stack.length -25].getMethodName())));
     }
-    public static String getDate(){
-        Date date = new Date();
-        return "_" + dateFormat.format(date);
-    }
 
     public void sendKeys(WebElement elem, String text) {
         elem.click();
@@ -172,8 +169,16 @@ public class TestBase extends ExtendManager {
         elem.click();
     }
 
-    public String getText(WebElement elem) {
-        return elem.getText();
+    public void scrollInToViewAndClick(WebElement elem){
+        waitForElementToBeVisible(elem);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
+        click(elem);
+    }
+
+    public void scrollInToView(WebElement elem) throws InterruptedException {
+        waitForElementToBeVisible(elem);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
+        Thread.sleep(500);
     }
 
     // Waits

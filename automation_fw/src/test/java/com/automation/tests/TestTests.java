@@ -25,11 +25,11 @@ public class TestTests extends TestBase {
     public void verifyResultsBasedOnSearchCriteria() throws InterruptedException, IOException {
         int daysCheckIn = 7;
         int daysCheckOut = 14;
+        int adults = 2;
+        int children = 1;
         String city = "Rome";
         String country = "Italy";
         String location = city +", " + country;
-        int adults = 2;
-        int children = 1;
 
         testItems.setWhereField(location);
         testItems.setCheckInDate(daysCheckIn);
@@ -47,14 +47,16 @@ public class TestTests extends TestBase {
     }
 
     @Test
-    public void verifyResultsAndDetailsMatchExtraFilters() throws InterruptedException {
+    public void verifyResultsAndDetailsMatchExtraFilters() throws InterruptedException, IOException {
         int daysCheckIn = 7;
         int daysCheckOut = 14;
-        String city = "Rome";
-        String country = "Italy";
-        String location = city +", " + country;
         int adults = 2;
         int children = 1;
+        int bedrooms = 5;
+        String city = "Rome";
+        String country = "Italy";
+        String amenity = "Pool";
+        String location = city +", " + country;
 
         testItems.setWhereField(location);
         testItems.setCheckInDate(daysCheckIn);
@@ -64,17 +66,25 @@ public class TestTests extends TestBase {
         testItems.setAddChild(children);
         testItems.closeGuestsField();
         testItems.submitHomePage();
+        testItems.clickMoreFilters();
+        testItems.setAddBedroomsMoreFilters(bedrooms);
+        testItems.selectPoolOption();
+        testItems.clickMoreFiltersShowButton();
+        softAssert.assertTrue(testItems.areEnoughBedrooms(bedrooms), "Amount of bedrooms");
+        testItems.clickFirstResult();
+        softAssert.assertTrue(testItems.isItemUnderAmenities(amenity), ""+amenity+" is present");
+        softAssert.assertAll();
     }
 
     @Test
     public void verifyPropertyIsDisplayedOnMapCorectly() throws InterruptedException {
         int daysCheckIn = 7;
         int daysCheckOut = 14;
+        int adults = 2;
+        int children = 1;
         String city = "Rome";
         String country = "Italy";
         String location = city +", " + country;
-        int adults = 2;
-        int children = 1;
 
         testItems.setWhereField(location);
         testItems.setCheckInDate(daysCheckIn);

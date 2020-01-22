@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a5749f3-8a6e-47d2-bada-eddef1233e18" name="Default Changelist" comment="" />
+    <list default="true" id="2a5749f3-8a6e-47d2-bada-eddef1233e18" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/TestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/automation/tests/TestTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/automation/tests/TestTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/TestBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/TestBase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/pageobjects/TestItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/pageobjects/TestItems.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/automation/tests/TestTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/automation/tests/TestTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/test_report.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +24,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -23,6 +35,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1WWJmDVEhXnS1clBkzmjSUFGYRl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -30,12 +43,30 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.TestTests.verifyResultsAndDetailsMatchExtraFilters">
+    <configuration name="TestTests.verifyResultsAndDetailsMatchExtraFilters" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="automation_fw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.tests.TestTests" />
+      <option name="METHOD_NAME" value="verifyResultsAndDetailsMatchExtraFilters" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestTests.verifyResultsBasedOnSearcCriteria" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="automation_fw" />
       <extension name="coverage">
@@ -54,8 +85,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestTests.verifyResultsBasedOnSearchCriteria" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="automation_fw" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.automation.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.tests.TestTests" />
+      <option name="METHOD_NAME" value="verifyResultsBasedOnSearchCriteria" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.TestTests.verifyResultsAndDetailsMatchExtraFilters" />
+        <item itemvalue="TestNG.TestTests.verifyResultsBasedOnSearchCriteria" />
         <item itemvalue="TestNG.TestTests.verifyResultsBasedOnSearcCriteria" />
       </list>
     </recent_temporary>
@@ -90,50 +141,62 @@
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1442" y="187" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1579440496910" />
+    <state x="1010" y="453" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1579700764802">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1010" y="453" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1579700764802" />
+    <state x="1303" y="64" key="CommitChangelistDialog2" timestamp="1579724920479">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1303" y="64" key="CommitChangelistDialog2/0.0.2560.1410@0.0.2560.1410" timestamp="1579724920479" />
     <state x="1585" y="373" key="FileChooserDialogImpl" timestamp="1579431664410">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
     <state x="1585" y="373" key="FileChooserDialogImpl/0.0.2560.1410@0.0.2560.1410" timestamp="1579431664410" />
-    <state width="1653" height="272" key="GridCell.Tab.0.bottom" timestamp="1579456476788">
+    <state width="1653" height="160" key="GridCell.Tab.0.bottom" timestamp="1579724554933">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1579456476788" />
-    <state width="1653" height="272" key="GridCell.Tab.0.center" timestamp="1579456476787">
+    <state width="1653" height="160" key="GridCell.Tab.0.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1579724554933" />
+    <state width="1653" height="160" key="GridCell.Tab.0.center" timestamp="1579724554933">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1579456476787" />
-    <state width="1653" height="272" key="GridCell.Tab.0.left" timestamp="1579456476787">
+    <state width="1653" height="160" key="GridCell.Tab.0.center/0.0.2560.1410@0.0.2560.1410" timestamp="1579724554933" />
+    <state width="1653" height="160" key="GridCell.Tab.0.left" timestamp="1579724554932">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1579456476787" />
-    <state width="1653" height="272" key="GridCell.Tab.0.right" timestamp="1579456476788">
+    <state width="1653" height="160" key="GridCell.Tab.0.left/0.0.2560.1410@0.0.2560.1410" timestamp="1579724554932" />
+    <state width="1653" height="160" key="GridCell.Tab.0.right" timestamp="1579724554933">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1579456476788" />
-    <state width="1653" height="272" key="GridCell.Tab.1.bottom" timestamp="1579456491079">
+    <state width="1653" height="160" key="GridCell.Tab.0.right/0.0.2560.1410@0.0.2560.1410" timestamp="1579724554933" />
+    <state width="1653" height="160" key="GridCell.Tab.1.bottom" timestamp="1579724502196">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.1.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1579456491079" />
-    <state width="1653" height="272" key="GridCell.Tab.1.center" timestamp="1579456491079">
+    <state width="1653" height="160" key="GridCell.Tab.1.bottom/0.0.2560.1410@0.0.2560.1410" timestamp="1579724502196" />
+    <state width="1653" height="160" key="GridCell.Tab.1.center" timestamp="1579724502195">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.1.center/0.0.2560.1410@0.0.2560.1410" timestamp="1579456491079" />
-    <state width="1653" height="272" key="GridCell.Tab.1.left" timestamp="1579456491079">
+    <state width="1653" height="160" key="GridCell.Tab.1.center/0.0.2560.1410@0.0.2560.1410" timestamp="1579724502195" />
+    <state width="1653" height="160" key="GridCell.Tab.1.left" timestamp="1579724502195">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.1.left/0.0.2560.1410@0.0.2560.1410" timestamp="1579456491079" />
-    <state width="1653" height="272" key="GridCell.Tab.1.right" timestamp="1579456491079">
+    <state width="1653" height="160" key="GridCell.Tab.1.left/0.0.2560.1410@0.0.2560.1410" timestamp="1579724502195" />
+    <state width="1653" height="160" key="GridCell.Tab.1.right" timestamp="1579724502196">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state width="1653" height="272" key="GridCell.Tab.1.right/0.0.2560.1410@0.0.2560.1410" timestamp="1579456491079" />
-    <state x="1346" y="167" key="SettingsEditor" timestamp="1579431695742">
+    <state width="1653" height="160" key="GridCell.Tab.1.right/0.0.2560.1410@0.0.2560.1410" timestamp="1579724502196" />
+    <state x="596" y="232" width="1040" height="869" key="SettingsEditor" timestamp="1579459060363">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1346" y="167" key="SettingsEditor/0.0.2560.1410@0.0.2560.1410" timestamp="1579431695742" />
-    <state x="1953" y="641" key="com.intellij.ide.util.TipDialog" timestamp="1579450530122">
+    <state x="596" y="232" width="1040" height="869" key="SettingsEditor/0.0.2560.1410@0.0.2560.1410" timestamp="1579459060363" />
+    <state x="1953" y="641" key="com.intellij.ide.util.TipDialog" timestamp="1579707833008">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
-    <state x="1953" y="641" key="com.intellij.ide.util.TipDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1579450530122" />
+    <state x="1953" y="641" key="com.intellij.ide.util.TipDialog/0.0.2560.1410@0.0.2560.1410" timestamp="1579707833008" />
+    <state x="1470" y="386" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579724824287">
+      <screen x="0" y="0" width="2560" height="1410" />
+    </state>
+    <state x="1470" y="386" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1410@0.0.2560.1410" timestamp="1579724824287" />
     <state x="1417" y="55" key="refactoring.ChangeSignatureDialog" timestamp="1579446478181">
       <screen x="0" y="0" width="2560" height="1410" />
     </state>
@@ -144,43 +207,28 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/automation/tests/TestTests.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java</url>
-          <line>85</line>
-          <option name="timeStamp" value="32" />
+          <line>72</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/automation/tests/TestTests.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="34" />
+          <line>73</line>
+          <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/com/automation/tests/TestTests.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="35" />
+          <line>74</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java</url>
+          <line>210</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/automation/pageobjects/TestItems.java</url>
+          <line>211</line>
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
