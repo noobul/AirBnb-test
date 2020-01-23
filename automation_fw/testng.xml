@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="automation">
+    <test name="aitBNB">
+        <classes>
+            <class name="com.automation.tests.TestTests"/>
+        </classes>
+    </test>
+</suite>
