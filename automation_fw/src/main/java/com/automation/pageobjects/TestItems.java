@@ -1,6 +1,7 @@
 package com.automation.pageobjects;
 
 import com.automation.TestBase;
+import com.sun.jna.StringArray;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -26,6 +27,7 @@ public class TestItems extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
+    //WebElement declaration
     @FindBy(xpath = "//*[@id='Koan-magic-carpet-koan-search-bar__input']")
     private WebElement whereField;
 
@@ -86,10 +88,10 @@ public class TestItems extends TestBase {
     @FindBy(xpath = "//*/div[1]/div[1]/div[1]/div[1]/div[*]/a[@data-check-info-section = \"true\"]")
     private WebElement firstResult;
 
-    /*public void switchToIFrame(WebElement element){
-        driver.switchTo().frame(element);
-    }*/
+    @FindBy(xpath = "//*/button[@data-veloute= \"map/markers/BasePillMarker\"]")
+    private WebElement buttonsOnMap;
 
+    //test methods
     public void setWhereField(String where){
         waitForElementToBeVisible(whereField);
         sendKeys(whereField, where);
@@ -101,15 +103,13 @@ public class TestItems extends TestBase {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, days);
         fmt.format("%tB", cal);
-        String month = fmt.toString();
-        return month;
+        return fmt.toString();
     }
     public String getMonth(){
         Formatter fmt = new Formatter();
         Calendar cal = Calendar.getInstance();
         fmt.format("%tB", cal);
-        String month = fmt.toString();
-        return month;
+        return fmt.toString();
     }
 
     public String getDayLater(int days){
@@ -117,30 +117,24 @@ public class TestItems extends TestBase {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, days);
         fmt.format("%te", cal);
-        String day = fmt.toString();
-        return day;
+        return fmt.toString();
     }
 
     public void setCheckInDate(int days){
-        if(getMonth().equals(getMonthLater(days)) == false){
-            nexMonthButtonCheckIn.click();
-        }
-        WebElement day = driver.findElement(By.xpath("//*/td[contains(@aria-label,'"+ getMonthLater(days) +"') and contains(@aria-label, '" + getDayLater(days) + "')]"));
-        waitForElementToBeClickable(day);
-        day.click();
+        setDate(nexMonthButtonCheckIn, days);
     }
 
     public void setCheckOutDate(int days){
-        if(getMonth().equals(getMonthLater(days)) == false){
-            nextMonthButtonCheckOut.click();
+        setDate(nextMonthButtonCheckOut, days);
+    }
+
+    public void setDate(WebElement elem, int days){
+        if(!getMonth().equals(getMonthLater(days))){
+            elem.click();
         }
         WebElement day = driver.findElement(By.xpath("//*/td[contains(@aria-label,'"+ getMonthLater(days) +"') and contains(@aria-label, '" + getDayLater(days) + "')]"));
         waitForElementToBeClickable(day);
         day.click();
-    }
-
-    public void setDate(){
-
     }
 
     public void addGuestsField(){
@@ -162,6 +156,7 @@ public class TestItems extends TestBase {
         waitForElementToBeVisible(firstResult);
         click(firstResult);
         Thread.sleep(500);
+
     }
 
     public void selectPoolOption(){
@@ -202,17 +197,46 @@ public class TestItems extends TestBase {
     }
 
     public String getSearchFieldValue(){
-        String searchFieldValue = searchField.getAttribute("value");
-        return searchFieldValue;
+        return searchField.getAttribute("value");
+    }
+
+
+    public boolean isTheInfoFromTheMapInTheList() throws IOException {
+        String firstResult = getNameOfFirstEResult();
+        List<WebElement> detailsOfFirstResultOnMap = driver.findElements(By.xpath("//*/a[@aria-label = '"+firstResult+"' and @rel = 'noopener']/../div[2]//*[text()[contains(.,'')]]"));
+        List<WebElement> detailsOfFirstResult = driver.findElements(By.xpath("//*/div[1]/div[1]/div[1]/div[1]/div[2]/a[@data-check-info-section = 'true']/../div[2]//*[text()[contains(.,'')]]"));
+        List<String> detailsOfFirstResultOnMapStrings = new ArrayList<>();
+        List<String> detailsOfFirstResultStrings = new ArrayList<>();
+        List<Integer> containCheck = new ArrayList<>();
+        boolean check;
+
+        for(WebElement detailOfFirstResult : detailsOfFirstResult){
+            detailsOfFirstResultStrings.add(detailOfFirstResult.getText());
+        }
+
+        for(WebElement detailOfFirstResultOnMap : detailsOfFirstResultOnMap){
+            detailsOfFirstResultOnMapStrings.add(detailOfFirstResultOnMap.getText());
+        }
+
+        for(String x : detailsOfFirstResultOnMapStrings){
+            if(detailsOfFirstResultStrings.contains(x)){
+                containCheck.add(1);
+            }else{
+                containCheck.add(0);
+            }
+        }
+
+        check = !containCheck.contains(0);
+
+        return checkPointBoolCondition(check, "The info is the same.", "The info is not the same.");
     }
 
     public boolean isItemUnderAmenities(String amenities) throws IOException, InterruptedException {
         Thread.sleep(3000);
-        //Actions action = new Actions(driver);
-        //action.keyDown(Keys.CONTROL).sendKeys(Keys.TAB).perform();
+        switcTab(1);
         scrollInToView(driver.findElement(By.xpath("//*[@id=\"amenities\"]")));
-        boolean amenity = driver.findElement(By.xpath("//*[@id=\"amenities\"]//div[contains(text(), '"+amenities+"')]")).isDisplayed();
-        return checkPointBoolCondition(amenity, ""+amenities+" are present.", ""+amenities+" are not present." );
+        boolean amenity = driver.findElement(By.xpath("//*[@id=\"amenities\"]//div[contains(text(), '"+amenities+"')]")).isDisplayed();//might fail randomly due to some inconsistency in the xpath
+        return checkPointBoolCondition(amenity, ""+amenities+" is present.", ""+amenities+" is not present." );
     }
 
     public boolean isSearchQueryTheSame(String city) throws IOException, InterruptedException {
@@ -221,10 +245,31 @@ public class TestItems extends TestBase {
     }
 
     public String getGuestNumber(){
-        String guestNumber = guestNumberAfterSearch.getAttribute("aria-label");
-        return guestNumber;
+        return guestNumberAfterSearch.getAttribute("aria-label");
     }
 
+    public void hoverOverFirstResult(){
+        waitForElementToBeVisible(firstResult);
+        hoverOverElement(firstResult);
+    }
+
+    public String getNameOfFirstEResult(){
+        return getAttributeText(firstResult, "aria-label");
+    }
+
+    public void clickFirstResultOnMap(){
+        String firstResult = getNameOfFirstEResult();
+        WebElement firstResultElement = driver.findElement(By.xpath("//*/button[@aria-label = '"+firstResult+"']"));
+        click(firstResultElement);
+    }
+
+    public boolean isItemOnMapNewColor() throws IOException {
+        String firstResult = getNameOfFirstEResult();
+        hoverOverFirstResult();
+        waitForElementToBeVisible(buttonsOnMap);
+        WebElement itemOnMap = driver.findElement(By.xpath("//*/button[@aria-label = '"+firstResult+"']/div/div[contains(@style, \"background-color: rgb(34, 34, 34)\" | 'background-color: (146, 23, 77)')]"));
+        return checkPointBoolCondition(itemOnMap.isDisplayed(), "The color of the first result has changed on the map.", "Something is wrong. I can feel it.");
+    }
 
     public boolean isGuestNumberTheSame(int guestNumber) throws InterruptedException, IOException {
         Thread.sleep(3000);
@@ -233,8 +278,7 @@ public class TestItems extends TestBase {
     }
 
     public String getDateInterval(){
-        String dateInterval = dateIntervalAfterSearch.getAttribute("aria-label");
-        return dateInterval;
+        return dateIntervalAfterSearch.getAttribute("aria-label");
     }
 
     public boolean isDateIntervalTheSame(int checkin, int checkout) throws InterruptedException, IOException {

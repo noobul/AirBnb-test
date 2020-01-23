@@ -13,19 +13,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import com.automation.helpers.Configuration;
 import com.automation.helpers.Configuration.*;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Formatter;
@@ -95,12 +99,17 @@ public class TestBase extends ExtendManager {
             else {
                 System.out.println("PASSED: " + result.getName());
                 logger.log(Status.PASS, MarkupHelper.createLabel("Passed", ExtentColor.GREEN));
+                driver.quit();
+                startBrowser();
+                maximize();
+                goToUrl(Configuration.TEST_URL);
+                waitPageLoad(TimeOuts.FIVE_SEC_WAIT);
             }
 
             extent.flush();
         }
 
-    @AfterMethod
+    @AfterTest
     public void quitDriver(){
         if(driver != null)
             driver.quit();
@@ -159,26 +168,42 @@ public class TestBase extends ExtendManager {
                         .generateFileName(stack[stack.length -25].getMethodName())));
     }
 
-    public void sendKeys(WebElement elem, String text) {
-        elem.click();
-        elem.clear();
-        elem.sendKeys(text);
+    public void sendKeys(WebElement element, String text) {
+        element.click();
+        element.clear();
+        element.sendKeys(text);
     }
 
-    public void click(WebElement elem) {
-        elem.click();
+    public void click(WebElement element) {
+        element.click();
     }
 
-    public void scrollInToViewAndClick(WebElement elem){
-        waitForElementToBeVisible(elem);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
-        click(elem);
+    public void scrollInToViewAndClick(WebElement element){
+        waitForElementToBeVisible(element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        click(element);
     }
 
-    public void scrollInToView(WebElement elem) throws InterruptedException {
-        waitForElementToBeVisible(elem);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", elem);
+    public void scrollInToView(WebElement element) throws InterruptedException {
+        waitForElementToBeVisible(element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         Thread.sleep(500);
+    }
+
+    public void switcTab(int tabPosition){
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());;
+        driver.switchTo().window(tabs.get(tabPosition));
+    }
+
+    public void hoverOverElement(WebElement element){
+        Actions action = new Actions(driver);
+        action.moveToElement(element).build().perform();
+    }
+
+    public String getAttributeText(WebElement element, String attributeName){
+        waitForElementToBeVisible(element);
+        String attName = element.getAttribute(attributeName);
+        return attName;
     }
 
     // Waits
@@ -186,16 +211,11 @@ public class TestBase extends ExtendManager {
         driver.manage().timeouts().pageLoadTimeout(timePageLoad, TimeUnit.SECONDS);
     }
 
-    public WebElement waitForElementToBeClickable(WebElement elem) {
-        return (new WebDriverWait (driver, TimeOuts.THIRTY_SEC_WAIT)).until(ExpectedConditions.elementToBeClickable(elem));
+    public WebElement waitForElementToBeClickable(WebElement element) {
+        return (new WebDriverWait (driver, TimeOuts.THIRTY_SEC_WAIT)).until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public WebElement waitForElementToBeVisible(WebElement elem) {
-        return (new WebDriverWait (driver, TimeOuts.SIXTY_SEC_WAIT)).until(ExpectedConditions.visibilityOf(elem));
+    public WebElement waitForElementToBeVisible(WebElement element) {
+        return (new WebDriverWait (driver, TimeOuts.SIXTY_SEC_WAIT)).until(ExpectedConditions.visibilityOf(element));
     }
-
-    public WebElement waitForElementToBeVisible(WebElement elem, int timeOut) {
-        return (new WebDriverWait(driver, timeOut)).until(ExpectedConditions.visibilityOf(elem));
-    }
-
 }
